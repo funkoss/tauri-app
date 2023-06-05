@@ -106,7 +106,7 @@ function startLoop() {
   for (let i = 0; i < num.value; i++) {
     list.push(createReq())
   }
-  console.time('loop')
+  // console.time('loop')
   Promise.allSettled(list).then((results => {
     // console.log(results);
     const list = results.filter(el => el.status === 'fulfilled')
@@ -114,7 +114,7 @@ function startLoop() {
     dataList.value =values.flat().concat(dataList.value) 
     count.value += 1
     loading.value = false
-    console.timeEnd('loop')
+    // console.timeEnd('loop')
     setTimeout(() => {
       startLoop()
     } ,1000)
